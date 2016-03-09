@@ -1,7 +1,9 @@
-package pl.tomaja.atbackup;
+package pl.tomaja.atbackup.task;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import pl.tomaja.atbackup.TaskParams;
+import pl.tomaja.atbackup.events.CopyEvent;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,12 +15,16 @@ public class SynchronizationTask implements Task {
 
     private static final Logger LOGGER = Logger.getLogger(SynchronizationTask.class);
 
-    public void execute(TaskParams params) throws IOException {
+    public TaskResult execute(TaskParams params) throws IOException {
+        TaskResult result = new TaskResult();
+
         checkParams(params);
-        doDirectory(params, "");
+        doDirectory(params, result, "");
+
+        return result;
     }
 
-    private void doDirectory(TaskParams params, String current) throws IOException {
+    private void doDirectory(TaskParams params, TaskResult result, String current) throws IOException {
         File currentSource = new File(params.getSource(), current);
         LOGGER.debug("Current source: " + currentSource);
 
@@ -28,7 +34,7 @@ public class SynchronizationTask implements Task {
             LOGGER.debug("Current child: " + childFile);
             String currentPathFilename = current + File.separator + child;
             if(childFile.isDirectory()) {
-                doDirectory(params, currentPathFilename);
+                doDirectory(params, result, currentPathFilename);
             } else {
                 File targetFile = new File(params.getTarget(), currentPathFilename);
                 LOGGER.debug("Target file: " + targetFile);
@@ -36,6 +42,7 @@ public class SynchronizationTask implements Task {
                 if(!targetFile.exists() || targetFile.lastModified() < childFile.lastModified()) {
                     LOGGER.debug("Copying; " + currentPathFilename);
                     FileUtils.copyFile(childFile, targetFile);
+                    result.addEvent(new CopyEvent(currentPathFilename));
                 }
             }
         }
