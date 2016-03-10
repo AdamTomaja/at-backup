@@ -2,7 +2,7 @@ package pl.tomaja.atbackup;
 
 import org.apache.commons.cli.*;
 import org.apache.log4j.Logger;
-import pl.tomaja.atbackup.task.SynchronizationTask;
+import pl.tomaja.atbackup.task.impl.CopyNewOrModified;
 import pl.tomaja.atbackup.task.Task;
 import pl.tomaja.atbackup.task.TaskResult;
 
@@ -18,13 +18,20 @@ public class App {
 
         try {
             TaskParams params = parser.parse(args);
-            Task task = new SynchronizationTask();
+            Task task = new CopyNewOrModified();
             TaskResult result = task.execute(params);
-            LOGGER.info("Task result: " + result);
+            showResult(result);
         } catch (ParseException e) {
             LOGGER.error("Error during args parsing", e);
         } catch (IOException e) {
             LOGGER.error("IO error", e);
         }
+    }
+
+    private static void showResult(TaskResult result) {
+        LOGGER.debug("Task results: ");
+        result.getEvents().forEach(e -> {
+            LOGGER.debug(String.format("%s: %s", e.getClass().getSimpleName(), e.getText()));
+        });
     }
 }

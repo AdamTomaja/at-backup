@@ -5,4 +5,6 @@ package pl.tomaja.atbackup.events;
  */
 public abstract class Event {
 
+    public abstract String getText();
+
 }

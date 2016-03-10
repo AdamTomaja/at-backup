@@ -16,6 +16,11 @@ public class CopyEvent extends Event {
     }
 
     @Override
+    public String getText() {
+        return path;
+    }
+
+    @Override
     public String toString() {
         return "CopyEvent{" +
                 "path='" + path + '\'' +
