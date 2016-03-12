@@ -23,7 +23,7 @@ java -jar target/at-backup.jar -s <source-dir> -t <target-dir> -c <config filena
 
 Example: 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <config>
     <beforeCommand>net use z: \\AveShare\nas_backup /USER:root password</beforeCommand>
