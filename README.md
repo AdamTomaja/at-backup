@@ -3,11 +3,11 @@
 at-backup is a simple tool writen in java. It can be used to make backup of directory to other directory.
 ## Usage 
 1. Build at-backup
-```
+```bash
 mvn package
 ```
 2. Run at-backup with Your parameters
-```
+```bash
 java -jar target/at-backup.jar -s <source-dir> -t <target-dir> -c <config filename> -l intervalInMiliseconds
 ```
 
