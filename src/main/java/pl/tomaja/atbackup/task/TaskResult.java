@@ -20,6 +20,10 @@ public class TaskResult {
         return events;
     }
 
+    public void addEvents(TaskResult result) {
+        events.addAll(result.getEvents());
+    }
+
     @Override
     public String toString() {
         return "TaskResult{" +
