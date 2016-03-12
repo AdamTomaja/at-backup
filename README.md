@@ -26,7 +26,7 @@ Example:
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <config>
-    <beforeCommand>net use z: \\AveShare\nas_backup /USER:root password</beforeCommand>
-    <afterCommand>net use z: /delete /YES</afterCommand>
+    <beforeCommand>net use z: \\AveShare\nas_backup /USER:root password</beforeCommand> <!-- Share will be mounted before task -->
+    <afterCommand>net use z: /delete /YES</afterCommand> <!-- After task the same share is unmounted -->
 </config>
 ```
