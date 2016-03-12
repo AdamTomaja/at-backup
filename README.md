@@ -28,4 +28,5 @@ Example:
 <config>
     <beforeCommand>net use z: \\AveShare\nas_backup /USER:root password</beforeCommand>
     <afterCommand>net use z: /delete /YES</afterCommand>
-</config>```
+</config>
+```
