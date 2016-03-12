@@ -12,10 +12,10 @@ java -jar target/at-backup.jar -s <source-dir> -t <target-dir> -c <config filena
 ```
 
 ## Parameters
-* -s - source directory
-* -t - target directory
-* -c - xml config filename
-* -l - infinity task executing interval in miliseconds
+* ```-s``` - source directory
+* ```-t``` - target directory
+* ```-c``` - xml config filename
+* ```-l``` - infinity task executing interval in miliseconds
 
 ## XML Config file
 * ```<beforeCommand>``` - this command will be executed before main task
