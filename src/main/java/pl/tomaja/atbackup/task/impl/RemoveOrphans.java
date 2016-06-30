@@ -34,12 +34,20 @@ public class RemoveOrphans extends AbstractTask implements Task {
 			final File targetFile = new File(params.getTarget(), childRelativeName);
 			final FileType targetType = io.type(targetFile);
 			
-			if (!io.exists(sourceFile) || !io.type(sourceFile).equals(targetType)) {
-				io.deleteQuietly(targetFile);
-				result.addEvent(new DeleteEvent(targetFile));
+			if (shouldBeDeleted(sourceFile, targetType)) {
+				delete(result, targetFile);
 			} else if (targetType == FileType.DIRECTORY) {
 				doDirectory(params, result, childRelativeName);
 			}
 		}
+	}
+
+	private boolean shouldBeDeleted(final File sourceFile, final FileType targetType) {
+		return !io.exists(sourceFile) || !io.type(sourceFile).equals(targetType);
+	}
+
+	private void delete(TaskResult result, final File targetFile) {
+		io.deleteQuietly(targetFile);
+		result.addEvent(new DeleteEvent(targetFile));
 	}
 }
