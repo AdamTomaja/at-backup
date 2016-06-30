@@ -36,4 +36,10 @@ public class RealIO implements IOFacade {
 		LOGGER.debug(String.format("Checking last modified of: %s", file));
 		return file.lastModified();
 	}
+
+	@Override
+	public String[] list(File file) {
+		LOGGER.debug(String.format("Listing %s", file));
+		return file.list();
+	}
 }

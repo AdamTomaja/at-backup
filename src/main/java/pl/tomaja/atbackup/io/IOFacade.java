@@ -15,4 +15,6 @@ public interface IOFacade {
 	boolean isDirectory(File file);
 	
 	long lastModified(File file);
+	
+	String[] list(File file);
 }
