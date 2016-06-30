@@ -27,14 +27,7 @@ public class RemoveOrphans extends AbstractTask implements Task {
 	}
 	
 	private void doDirectory(TaskParams params, TaskResult result, String current) {
-		File currentTarget = new File(params.getTarget(), current);
-		String[] childs = io.list(currentTarget);
-		
-		if(childs == null) {
-			return;
-		}
-		
-		for(String childString : childs) {
+		for(String childString : io.list(new File(params.getTarget(), current))) {
 			final String childRelativeName = current + File.separator + childString;
 			final File sourceFile = new File(params.getSource(), childRelativeName);
 			final File targetFile = new File(params.getTarget(), childRelativeName);

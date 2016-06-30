@@ -40,7 +40,8 @@ public class RealIO implements IOFacade {
 	@Override
 	public String[] list(File file) {
 		LOGGER.debug(String.format("Listing %s", file));
-		return file.list();
+		String[] list = file.list();
+		return list == null ? new String[0] : list;
 	}
 
 	@Override
