@@ -16,6 +16,7 @@ public class ParametersParser {
             TARGET_OPTION = "t",
             CONFIG_OPTION = "c",
             LOOP_OPTION = "l",
+            MODE_OPTION = "mode",
     		LOG_LEVEL_OPTION = "log";
 
     private final Options options = createOptions();
@@ -25,9 +26,10 @@ public class ParametersParser {
         Options options = new Options();
         options.addOption(SOURCE_OPTION, true, "Source directory");
         options.addOption(TARGET_OPTION, true, "Target directory");
-        options.addOption(CONFIG_OPTION, true, "Config file path");
-        options.addOption(LOOP_OPTION, true, "Loop interval");
-        options.addOption(LOG_LEVEL_OPTION, true, "Log level");
+        options.addOption(CONFIG_OPTION, true, "Config file path - optional");
+        options.addOption(LOOP_OPTION, true, "Loop interval - optional");
+        options.addOption(LOG_LEVEL_OPTION, true, "Log level - optional");
+        options.addOption(MODE_OPTION, true, "Synchronization mode - optional");
         return options;
     }
     
@@ -65,6 +67,8 @@ public class ParametersParser {
 
         Optional<String> logLevel = Optional.ofNullable(cmd.getOptionValue(LOG_LEVEL_OPTION));
         
-		return new TaskParams(source, target, config, interval, logLevel);
+        Optional<String> mode = Optional.ofNullable(cmd.getOptionValue(MODE_OPTION));
+        
+		return new TaskParams(source, target, config, interval, logLevel, mode);
     }
 }
