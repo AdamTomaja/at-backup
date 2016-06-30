@@ -42,4 +42,21 @@ public class RealIO implements IOFacade {
 		LOGGER.debug(String.format("Listing %s", file));
 		return file.list();
 	}
+
+	@Override
+	public boolean deleteQuietly(File file) {
+		LOGGER.debug(String.format("Deleting quietly: %s", file));
+//		return FileUtils.deleteQuietly(file);
+		return true;
+	}
+
+	@Override
+	public FileType type(File file) {
+		LOGGER.debug(String.format("Checking type of %s", file));
+		if(isDirectory(file)) {
+			return FileType.DIRECTORY;
+		} else {
+			return FileType.FILE;
+		}
+	}
 }

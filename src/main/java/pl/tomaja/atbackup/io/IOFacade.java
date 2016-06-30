@@ -17,4 +17,8 @@ public interface IOFacade {
 	long lastModified(File file);
 	
 	String[] list(File file);
+	
+	boolean deleteQuietly(File file);
+	
+	FileType type(File file);
 }
