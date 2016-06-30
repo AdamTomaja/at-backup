@@ -38,7 +38,7 @@ public class CopyNewOrModified implements Task {
         File currentSource = new File(params.getSource(), current);
         LOGGER.debug("Current source: " + currentSource);
 
-        String[] childs = currentSource.list();
+        String[] childs = io.list(currentSource);
         if(childs == null) {
             return;
         }
