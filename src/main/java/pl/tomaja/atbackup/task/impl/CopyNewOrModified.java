@@ -1,15 +1,16 @@
 package pl.tomaja.atbackup.task.impl;
 
-import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.io.IOException;
+
 import org.apache.log4j.Logger;
 
 import pl.tomaja.atbackup.events.CopyEvent;
+import pl.tomaja.atbackup.io.IOFacade;
+import pl.tomaja.atbackup.io.IOHolder;
 import pl.tomaja.atbackup.params.TaskParams;
 import pl.tomaja.atbackup.task.Task;
 import pl.tomaja.atbackup.task.TaskResult;
-
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by Adam Tomaja on 2016-03-09.
@@ -18,8 +19,10 @@ public class CopyNewOrModified implements Task {
 
     private static final Logger LOGGER = Logger.getLogger(CopyNewOrModified.class);
 
+    private final IOFacade io = IOHolder.get();
+    
     private int count;
-
+    
     public TaskResult execute(TaskParams params) throws IOException {
         count = 0;
 
@@ -44,15 +47,15 @@ public class CopyNewOrModified implements Task {
             File childFile = new File(currentSource, child);
             LOGGER.debug("Current child: " + childFile);
             String currentPathFilename = current + File.separator + child;
-            if(childFile.isDirectory()) {
+            if(io.isDirectory(childFile)) {
                 doDirectory(params, result, currentPathFilename);
             } else {
                 File targetFile = new File(params.getTarget(), currentPathFilename);
                 LOGGER.debug("Target file: " + targetFile);
 
-                if(!targetFile.exists() || targetFile.lastModified() < childFile.lastModified()) {
+                if(!io.exists(targetFile) || io.lastModified(targetFile) < io.lastModified(childFile)) {
                     LOGGER.info("Copying; " + currentPathFilename);
-                    FileUtils.copyFile(childFile, targetFile);
+                    io.copyFile(childFile, targetFile);
                     result.addEvent(new CopyEvent(currentPathFilename));
                 }
             }
@@ -70,7 +73,7 @@ public class CopyNewOrModified implements Task {
     }
 
     private void checkDir(File file) {
-        if(!(file.exists() && file.isDirectory())) {
+        if(!(io.exists(file) && io.isDirectory(file))) {
             throw new RuntimeException(String.format("%s does not exist or is not a directory", file));
         }
     }
