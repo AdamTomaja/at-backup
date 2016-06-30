@@ -40,7 +40,8 @@ public class App {
         } catch (IOException e) {
             LOGGER.error("IO error", e);
         } catch (ArgumentException e) {
-        	LOGGER.error("Invalid arguments provided", e);
+        	LOGGER.error("Invalid arguments provided: " + e.getMessage());
+        	parser.showHelp();
         }
     }
 

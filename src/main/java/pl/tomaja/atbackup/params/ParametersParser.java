@@ -18,7 +18,6 @@ public class ParametersParser {
             LOOP_OPTION = "l",
     		LOG_LEVEL_OPTION = "log";
 
-
     private final Options options = createOptions();
     private final CommandLineParser parser = new DefaultParser();
 
@@ -30,6 +29,11 @@ public class ParametersParser {
         options.addOption(LOOP_OPTION, true, "Loop interval");
         options.addOption(LOG_LEVEL_OPTION, true, "Log level");
         return options;
+    }
+    
+    public void showHelp() {
+    	HelpFormatter formatter = new HelpFormatter();
+    	formatter.printHelp("java -jar at-backup.jar", options);
     }
 
     public TaskParams parse(String[] args) throws ParseException {
