@@ -47,8 +47,7 @@ public class RealIO implements IOFacade {
 	@Override
 	public boolean deleteQuietly(File file) {
 		LOGGER.debug(String.format("Deleting quietly: %s", file));
-//		return FileUtils.deleteQuietly(file);
-		return true;
+		return FileUtils.deleteQuietly(file);
 	}
 
 	@Override
