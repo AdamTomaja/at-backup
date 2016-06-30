@@ -6,8 +6,6 @@ import java.io.IOException;
 import org.apache.log4j.Logger;
 
 import pl.tomaja.atbackup.events.CopyEvent;
-import pl.tomaja.atbackup.io.IOFacade;
-import pl.tomaja.atbackup.io.IOHolder;
 import pl.tomaja.atbackup.params.TaskParams;
 import pl.tomaja.atbackup.task.Task;
 import pl.tomaja.atbackup.task.TaskResult;
@@ -15,11 +13,9 @@ import pl.tomaja.atbackup.task.TaskResult;
 /**
  * Created by Adam Tomaja on 2016-03-09.
  */
-public class CopyNewOrModified implements Task {
+public class CopyNewOrModified extends AbstractTask implements Task {
 
     private static final Logger LOGGER = Logger.getLogger(CopyNewOrModified.class);
-
-    private final IOFacade io = IOHolder.get();
     
     private int count;
     
@@ -64,17 +60,6 @@ public class CopyNewOrModified implements Task {
             if(count % 5000 == 0) {
                 LOGGER.info(String.format("%d files and directories analyzed", count));
             }
-        }
-    }
-
-    private void checkParams(TaskParams params) {
-        checkDir(params.getSource());
-        checkDir(params.getTarget());
-    }
-
-    private void checkDir(File file) {
-        if(!(io.exists(file) && io.isDirectory(file))) {
-            throw new RuntimeException(String.format("%s does not exist or is not a directory", file));
         }
     }
 }

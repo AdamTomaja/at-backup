@@ -11,7 +11,7 @@ import pl.tomaja.atbackup.task.TaskResult;
 /**
  * Created by Adam Tomaja
  */
-public class RemoveOrphans implements Task {
+public class RemoveOrphans extends AbstractTask implements Task {
 
 	private static final Logger LOGGER = Logger.getLogger(RemoveOrphans.class);
 	
