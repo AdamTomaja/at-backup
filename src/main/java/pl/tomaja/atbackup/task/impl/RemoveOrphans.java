@@ -19,6 +19,12 @@ public class RemoveOrphans extends AbstractTask implements Task {
 	public TaskResult execute(TaskParams params) throws IOException {
 		TaskResult result = new TaskResult();
 		LOGGER.info("Removing Orphans...");
+		checkParams(params);
+		doDirectory(result, "");
 		return result;
+	}
+	
+	private void doDirectory(TaskResult result, String current) {
+		
 	}
 }
