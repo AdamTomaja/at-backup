@@ -1,4 +1,4 @@
-package pl.tomaja.atbackup;
+package pl.tomaja.atbackup.params;
 
 import pl.tomaja.atbackup.config.Config;
 
@@ -17,12 +17,15 @@ public class TaskParams {
     private final Optional<Config> config;
 
     private final Optional<Long> loopInterval;
+    
+    private final Optional<String> logLevel;
 
-    public TaskParams(File source, File target, Optional<Config> config, Optional<Long> loopInterval) {
+    public TaskParams(File source, File target, Optional<Config> config, Optional<Long> loopInterval, Optional<String> logLevel) {
         this.source = source;
         this.target = target;
         this.config = config;
         this.loopInterval = loopInterval;
+        this.logLevel = logLevel;
     }
 
     public File getTarget() {
@@ -40,12 +43,14 @@ public class TaskParams {
     public Optional<Long> getLoopInterval() {
         return loopInterval;
     }
+    
+    public Optional<String> getLogLevel() {
+		return logLevel;
+	}
 
-    @Override
-    public String toString() {
-        return "TaskParams{" +
-                "source=" + source +
-                ", target=" + target +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "TaskParams [source=" + source + ", target=" + target + ", config=" + config + ", loopInterval="
+				+ loopInterval + ", logLevel=" + logLevel + "]";
+	}
 }

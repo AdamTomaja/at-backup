@@ -1,6 +1,6 @@
 package pl.tomaja.atbackup.task;
 
-import pl.tomaja.atbackup.TaskParams;
+import pl.tomaja.atbackup.params.TaskParams;
 import pl.tomaja.atbackup.task.impl.CopyNewOrModified;
 import pl.tomaja.atbackup.task.impl.ExecuteCommandsAndTask;
 import pl.tomaja.atbackup.task.impl.IntervalTask;

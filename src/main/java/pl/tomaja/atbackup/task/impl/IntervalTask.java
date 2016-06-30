@@ -1,7 +1,8 @@
 package pl.tomaja.atbackup.task.impl;
 
 import org.apache.log4j.Logger;
-import pl.tomaja.atbackup.TaskParams;
+
+import pl.tomaja.atbackup.params.TaskParams;
 import pl.tomaja.atbackup.task.Task;
 import pl.tomaja.atbackup.task.TaskResult;
 

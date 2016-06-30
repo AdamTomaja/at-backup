@@ -2,8 +2,9 @@ package pl.tomaja.atbackup.task.impl;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import pl.tomaja.atbackup.TaskParams;
+
 import pl.tomaja.atbackup.events.CopyEvent;
+import pl.tomaja.atbackup.params.TaskParams;
 import pl.tomaja.atbackup.task.Task;
 import pl.tomaja.atbackup.task.TaskResult;
 

@@ -1,4 +1,4 @@
-package pl.tomaja.atbackup;
+package pl.tomaja.atbackup.params;
 
 import org.apache.commons.cli.*;
 import pl.tomaja.atbackup.config.Config;
@@ -15,7 +15,9 @@ public class ParametersParser {
     public static final String SOURCE_OPTION = "s",
             TARGET_OPTION = "t",
             CONFIG_OPTION = "c",
-            LOOP_OPTION = "l";
+            LOOP_OPTION = "l",
+    		LOG_LEVEL_OPTION = "log";
+
 
     private final Options options = createOptions();
     private final CommandLineParser parser = new DefaultParser();
@@ -26,6 +28,7 @@ public class ParametersParser {
         options.addOption(TARGET_OPTION, true, "Target directory");
         options.addOption(CONFIG_OPTION, true, "Config file path");
         options.addOption(LOOP_OPTION, true, "Loop interval");
+        options.addOption(LOG_LEVEL_OPTION, true, "Log level");
         return options;
     }
 
@@ -33,11 +36,11 @@ public class ParametersParser {
         CommandLine cmd = parser.parse(options, args);
 
         if (!cmd.hasOption(SOURCE_OPTION)) {
-            throw new RuntimeException("No source parameter!");
+            throw new ArgumentException("No source parameter!");
         }
 
         if (!cmd.hasOption(TARGET_OPTION)) {
-            throw new RuntimeException("No target parameter!");
+            throw new ArgumentException("No target parameter!");
         }
 
         File source = new File(cmd.getOptionValue(SOURCE_OPTION));
@@ -56,6 +59,8 @@ public class ParametersParser {
             interval = Optional.of(Long.parseLong(cmd.getOptionValue(LOOP_OPTION)));
         }
 
-        return new TaskParams(source, target, config, interval);
+        Optional<String> logLevel = Optional.ofNullable(cmd.getOptionValue(LOG_LEVEL_OPTION));
+        
+		return new TaskParams(source, target, config, interval, logLevel);
     }
 }
