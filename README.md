@@ -17,7 +17,10 @@ java -jar target/at-backup.jar -s <source-dir> -t <target-dir> -c <config filena
 * ```-c``` - xml config filename [ optional ]
 * ```-l``` - infinity task executing interval in miliseconds [ optional ]
 * ```-log``` - log level, possible options: DEBUG, INFO ...
-* ```-mode``` - synchronization mode, at the moment can by anything and Remove Orphans mode will be run 
+* ```-mode``` - synchronization mode, at the moment only one option is available: RemoveOrphans
+
+## Modes
+* RemoveOrphans - Removes files in target no longer existing in source
 
 ## XML Config file
 * ```<beforeCommand>``` - this command will be executed before main task
