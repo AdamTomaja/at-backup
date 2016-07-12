@@ -18,9 +18,14 @@ java -jar target/at-backup.jar -s <source-dir> -t <target-dir> -c <config filena
 * ```-l``` - infinity task executing interval in miliseconds [ optional ]
 * ```-log``` - log level, possible options: DEBUG, INFO ...
 * ```-mode``` - synchronization mode, at the moment only one option is available: RemoveOrphans
+* ```-io``` - IO mode. Real or ReadOnly
 
 ## Modes
 * RemoveOrphans - Removes files in target no longer existing in source
+
+## IO Modes
+* Real - All operations are executed physically on hard disk
+* ReadOnly - Only read operations are executed. Application will not modify the file system.
 
 ## XML Config file
 * ```<beforeCommand>``` - this command will be executed before main task
