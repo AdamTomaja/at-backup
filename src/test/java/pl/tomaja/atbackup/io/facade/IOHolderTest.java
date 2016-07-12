@@ -34,4 +34,16 @@ public class IOHolderTest {
 		// Then
 		assertThat(IOHolder.get().getClass()).isEqualTo(ReadOnlyIO.class);
 	}
+	
+	@Test
+	public void theSameIOShouldBeSet() {
+		// Given
+		IOFacade io = new RealIO();
+		
+		// When
+		IOHolder.set(io);
+		
+		// Then
+		assertThat(IOHolder.get()).isSameAs(io);
+	}
 }
