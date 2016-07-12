@@ -17,7 +17,8 @@ public class ParametersParser {
             CONFIG_OPTION = "c",
             LOOP_OPTION = "l",
             MODE_OPTION = "mode",
-    		LOG_LEVEL_OPTION = "log";
+    		LOG_LEVEL_OPTION = "log",
+    		IO_OPTION = "io";
 
     private final Options options = createOptions();
     private final CommandLineParser parser = new DefaultParser();
@@ -30,6 +31,7 @@ public class ParametersParser {
         options.addOption(LOOP_OPTION, true, "Loop interval - optional");
         options.addOption(LOG_LEVEL_OPTION, true, "Log level - optional");
         options.addOption(MODE_OPTION, true, "Synchronization mode - optional");
+        options.addOption(IO_OPTION, true, "IO mode - optional - [real, readonly]");
         return options;
     }
     
@@ -69,6 +71,8 @@ public class ParametersParser {
         
         Optional<String> mode = Optional.ofNullable(cmd.getOptionValue(MODE_OPTION));
         
-		return new TaskParams(source, target, config, interval, logLevel, mode);
+        Optional<String> io = Optional.ofNullable(cmd.getOptionValue(IO_OPTION));
+        
+		return new TaskParams(source, target, config, interval, logLevel, mode, io);
     }
 }

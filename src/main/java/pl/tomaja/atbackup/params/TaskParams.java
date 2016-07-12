@@ -21,19 +21,23 @@ public class TaskParams {
     private final Optional<String> logLevel;
     
     private final Optional<String> mode;
+    
+    private final Optional<String> io;
 
     public TaskParams(File source, 
     		File target, 
     		Optional<Config> config, 
     		Optional<Long> loopInterval, 
     		Optional<String> logLevel,
-    		Optional<String> mode) {
+    		Optional<String> mode,
+    		Optional<String> io) {
         this.source = source;
         this.target = target;
         this.config = config;
         this.loopInterval = loopInterval;
         this.logLevel = logLevel;
         this.mode = mode;
+        this.io = io;
     }
 
     public File getTarget() {
@@ -58,6 +62,10 @@ public class TaskParams {
     
 	public Optional<String> getMode() {
 		return mode;
+	}
+
+	public Optional<String> getIo() {
+		return io;
 	}
 
 	@Override

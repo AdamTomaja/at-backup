@@ -1,10 +1,12 @@
-package pl.tomaja.atbackup.io;
+package pl.tomaja.atbackup.io.facade;
 
 import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+
+import pl.tomaja.atbackup.io.FileType;
 
 /**
  * Created by Adam Tomaja

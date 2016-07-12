@@ -2,8 +2,8 @@ package pl.tomaja.atbackup.task.impl;
 
 import java.io.File;
 
-import pl.tomaja.atbackup.io.IOFacade;
 import pl.tomaja.atbackup.io.IOHolder;
+import pl.tomaja.atbackup.io.facade.IOFacade;
 import pl.tomaja.atbackup.params.TaskParams;
 
 /**

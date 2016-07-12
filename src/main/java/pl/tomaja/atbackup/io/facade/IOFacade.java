@@ -1,7 +1,9 @@
-package pl.tomaja.atbackup.io;
+package pl.tomaja.atbackup.io.facade;
 
 import java.io.File;
 import java.io.IOException;
+
+import pl.tomaja.atbackup.io.FileType;
 
 /**
  * Created by Adam Tomaja
