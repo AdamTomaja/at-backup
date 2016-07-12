@@ -12,7 +12,7 @@ import pl.tomaja.atbackup.task.Task;
 import pl.tomaja.atbackup.task.TaskResult;
 
 /**
- * Created by Adam Tomaja
+ * @author Adam Tomaja
  */
 public class RemoveOrphans extends AbstractTask implements Task {
 

@@ -7,7 +7,7 @@ import pl.tomaja.atbackup.io.facade.IOFacade;
 import pl.tomaja.atbackup.params.TaskParams;
 
 /**
- * Created by Adam Tomaja
+ * @author Adam Tomaja
  */
 public class AbstractTask {
 	

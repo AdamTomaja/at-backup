@@ -5,7 +5,7 @@ import java.io.IOException;
 import pl.tomaja.atbackup.params.TaskParams;
 
 /**
- * Created by Adam Tomaja on 2016-03-09.
+ * @author Adam Tomaja
  */
 public interface Task {
 

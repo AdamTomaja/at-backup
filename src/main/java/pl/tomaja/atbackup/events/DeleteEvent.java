@@ -3,7 +3,7 @@ package pl.tomaja.atbackup.events;
 import java.io.File;
 
 /**
- * Created by Adam Tomaja
+ * @author Adam Tomaja
  */
 public class DeleteEvent extends Event {
 

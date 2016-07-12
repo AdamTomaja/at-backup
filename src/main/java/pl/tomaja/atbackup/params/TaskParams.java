@@ -6,7 +6,7 @@ import java.util.Optional;
 import pl.tomaja.atbackup.config.Config;
 
 /**
- * Created by Adam Tomaja on 2016-03-09.
+ * @author Adam Tomaja
  */
 public class TaskParams {
 

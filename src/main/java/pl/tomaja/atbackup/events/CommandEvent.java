@@ -1,7 +1,7 @@
 package pl.tomaja.atbackup.events;
 
 /**
- * Created by Adam Tomaja on 2016-03-12.
+ * @author Adam Tomaja
  */
 public class CommandEvent extends Event {
 

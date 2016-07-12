@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 import pl.tomaja.atbackup.io.FileType;
 
 /**
- * Created by Adam Tomaja
+ * @author Adam Tomaja
  */
 public class RealIO implements IOFacade {
 

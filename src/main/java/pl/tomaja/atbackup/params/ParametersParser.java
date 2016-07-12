@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.Optional;
 
 /**
- * Created by Adam Tomaja on 2016-03-09.
+ * @author Adam Tomaja
  */
 public class ParametersParser {
 

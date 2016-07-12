@@ -6,7 +6,7 @@ import java.io.IOException;
 import pl.tomaja.atbackup.io.FileType;
 
 /**
- * Created by Adam Tomaja
+ * @author Adam Tomaja
  */
 public interface IOFacade {
 	

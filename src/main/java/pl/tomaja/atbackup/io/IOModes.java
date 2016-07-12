@@ -4,7 +4,7 @@ import pl.tomaja.atbackup.io.facade.ReadOnlyIO;
 import pl.tomaja.atbackup.io.facade.RealIO;
 
 /**
- * Created by Adam Tomaja
+ * @author Adam Tomaja
  */
 public enum IOModes {
 

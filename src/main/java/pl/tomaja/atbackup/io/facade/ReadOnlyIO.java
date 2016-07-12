@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.apache.log4j.Logger;
 
 /**
- * Created by Adam Tomaja
+ * @author Adam Tomaja
  */
 public class ReadOnlyIO extends RealIO {
 

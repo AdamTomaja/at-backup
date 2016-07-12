@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by Adam Tomaja on 2016-03-12.
+ * @author Adam Tomaja
  */
 @XmlRootElement
 public class Config {

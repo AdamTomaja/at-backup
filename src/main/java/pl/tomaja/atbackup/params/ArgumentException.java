@@ -1,7 +1,7 @@
 package pl.tomaja.atbackup.params;
 
 /**
- * Created by Adam Tomaja
+ * @author Adam Tomaja
  */
 public class ArgumentException extends RuntimeException {
 

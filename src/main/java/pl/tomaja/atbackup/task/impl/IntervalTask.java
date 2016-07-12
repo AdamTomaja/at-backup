@@ -9,7 +9,7 @@ import pl.tomaja.atbackup.task.TaskResult;
 import java.io.IOException;
 
 /**
- * Created by Adam Tomaja on 2016-03-12.
+ * @author Adam Tomaja
  */
 public class IntervalTask implements Task {
 

@@ -18,7 +18,7 @@ import pl.tomaja.atbackup.task.TaskFactory;
 import pl.tomaja.atbackup.task.TaskResult;
 
 /**
- * Created by Adam Tomaja on 2016-03-09.
+ * @author Adam Tomaja
  */
 public class App {
 

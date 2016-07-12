@@ -6,7 +6,7 @@ import pl.tomaja.atbackup.io.facade.IOFacade;
 import pl.tomaja.atbackup.io.facade.RealIO;
 
 /**
- * Created by Adam Tomaja
+ * @author Adam Tomaja
  */
 public class IOHolder {
 

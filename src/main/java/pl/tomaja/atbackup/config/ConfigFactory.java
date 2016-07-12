@@ -8,7 +8,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
 /**
- * Created by Adam Tomaja on 2016-03-12.
+ * @author Adam Tomaja
  */
 public class ConfigFactory {
 

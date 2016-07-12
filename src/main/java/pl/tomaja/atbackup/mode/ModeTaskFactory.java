@@ -4,7 +4,7 @@ import pl.tomaja.atbackup.task.Task;
 import pl.tomaja.atbackup.task.impl.RemoveOrphans;
 
 /**
- * Created by Adam Tomaja
+ * @author Adam Tomaja
  */
 public class ModeTaskFactory {
 

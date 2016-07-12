@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Created by Adam Tomaja on 2016-03-12.
+ * @author Adam Tomaja
  */
 public class ExecuteCommand implements Task {
 
