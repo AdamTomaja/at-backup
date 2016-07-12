@@ -46,4 +46,13 @@ public class IOHolderTest {
 		// Then
 		assertThat(IOHolder.get()).isSameAs(io);
 	}
+	
+	@Test(expected = RuntimeException.class)
+	public void exceptionShouldBeThrownIfUnknownIOName() {
+		// Given
+		String ioName = "asdkashkdj";
+		
+		// When
+		IOHolder.setFromString(ioName);
+	}
 }
