@@ -12,24 +12,24 @@ import java.io.IOException;
  */
 public class ExecuteCommandsAndTask implements Task {
 
-    private final Task task;
+	private final Task task;
 
-    public ExecuteCommandsAndTask(Task task) {
-        this.task = task;
-    }
+	public ExecuteCommandsAndTask(Task task) {
+		this.task = task;
+	}
 
-    @Override
-    public TaskResult execute(TaskParams params) throws IOException {
-        TaskResult result = new TaskResult();
-        Config config = params.getConfig().get();
-        
+	@Override
+	public TaskResult execute(TaskParams params) throws IOException {
+		TaskResult result = new TaskResult();
+		Config config = params.getConfig().get();
+
 		Task beforeCommand = new ExecuteCommand(config.getBeforeCommand());
-        Task afterCommand = new ExecuteCommand(config.getAfterCommand());
+		Task afterCommand = new ExecuteCommand(config.getAfterCommand());
 
-        result.addEvents(beforeCommand.execute(params));
-        result.addEvents(task.execute(params));
-        result.addEvents(afterCommand.execute(params));
+		result.addEvents(beforeCommand.execute(params));
+		result.addEvents(task.execute(params));
+		result.addEvents(afterCommand.execute(params));
 
-        return result;
-    }
+		return result;
+	}
 }
