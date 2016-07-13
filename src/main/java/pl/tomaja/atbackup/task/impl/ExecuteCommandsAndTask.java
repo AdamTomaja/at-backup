@@ -1,5 +1,6 @@
 package pl.tomaja.atbackup.task.impl;
 
+import pl.tomaja.atbackup.config.Config;
 import pl.tomaja.atbackup.params.TaskParams;
 import pl.tomaja.atbackup.task.Task;
 import pl.tomaja.atbackup.task.TaskResult;
@@ -20,8 +21,10 @@ public class ExecuteCommandsAndTask implements Task {
     @Override
     public TaskResult execute(TaskParams params) throws IOException {
         TaskResult result = new TaskResult();
-        Task beforeCommand = new ExecuteCommand(params.getConfig().get().getBeforeCommand());
-        Task afterCommand = new ExecuteCommand(params.getConfig().get().getAfterCommand());
+        Config config = params.getConfig().get();
+        
+		Task beforeCommand = new ExecuteCommand(config.getBeforeCommand());
+        Task afterCommand = new ExecuteCommand(config.getAfterCommand());
 
         result.addEvents(beforeCommand.execute(params));
         result.addEvents(task.execute(params));
