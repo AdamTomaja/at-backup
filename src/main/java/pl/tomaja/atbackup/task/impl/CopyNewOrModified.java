@@ -51,8 +51,9 @@ public class CopyNewOrModified extends AbstractTask implements Task {
 
                 if(!io.exists(targetFile) || io.lastModified(targetFile) < io.lastModified(childFile)) {
                     LOGGER.info("Copying; " + currentPathFilename);
-                    io.copyFile(childFile, targetFile);
-                    result.addEvent(new CopyEvent(currentPathFilename));
+                    if(io.copyFile(childFile, targetFile)) {
+                    	result.addEvent(new CopyEvent(currentPathFilename));
+                    }
                 }
             }
 

@@ -27,13 +27,13 @@ public class RemoveOrphans extends AbstractTask implements Task {
 		return result;
 	}
 
-	private void doDirectory(TaskParams params, TaskResult result, String currentRelative) {
+	private void doDirectory(TaskParams params, TaskResult result, String currentRelative) throws IOException {
 		for (String childString : io.list(new File(params.getTarget(), currentRelative))) {
 			final String childRelativeName = currentRelative + File.separator + childString;
 			final File sourceFile = new File(params.getSource(), childRelativeName);
 			final File targetFile = new File(params.getTarget(), childRelativeName);
 			final FileType targetType = io.type(targetFile);
-			
+
 			if (shouldBeDeleted(sourceFile, targetType)) {
 				delete(result, targetFile);
 			} else if (targetType == FileType.DIRECTORY) {
@@ -46,8 +46,9 @@ public class RemoveOrphans extends AbstractTask implements Task {
 		return !io.exists(sourceFile) || !io.type(sourceFile).equals(targetType);
 	}
 
-	private void delete(TaskResult result, final File targetFile) {
-		io.deleteQuietly(targetFile);
-		result.addEvent(new DeleteEvent(targetFile));
+	private void delete(TaskResult result, final File targetFile) throws IOException {
+		if (io.deleteQuietly(targetFile)) {
+			result.addEvent(new DeleteEvent(targetFile));
+		}
 	}
 }

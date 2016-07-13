@@ -1,5 +1,6 @@
 package pl.tomaja.atbackup.io;
 
+import pl.tomaja.atbackup.io.facade.InteractiveIO;
 import pl.tomaja.atbackup.io.facade.ReadOnlyIO;
 import pl.tomaja.atbackup.io.facade.RealIO;
 
@@ -8,7 +9,7 @@ import pl.tomaja.atbackup.io.facade.RealIO;
  */
 public enum IOModes {
 
-	REAL(RealIO.class), READONLY(ReadOnlyIO.class);
+	REAL(RealIO.class), READONLY(ReadOnlyIO.class), INTERACTIVE(InteractiveIO.class);
 
 	private final Class<?> clazz;
 

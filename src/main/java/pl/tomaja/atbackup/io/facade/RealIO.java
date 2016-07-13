@@ -16,9 +16,10 @@ public class RealIO implements IOFacade {
 	private static final Logger LOGGER = Logger.getLogger(RealIO.class);
 	
 	@Override
-	public void copyFile(File srcFile, File destFile) throws IOException {
+	public boolean copyFile(File srcFile, File destFile) throws IOException {
 		LOGGER.debug(String.format("Copying %s -> %s", srcFile, destFile));
 		FileUtils.copyFile(srcFile, destFile);
+		return true;
 	}
 
 	@Override
@@ -47,7 +48,7 @@ public class RealIO implements IOFacade {
 	}
 
 	@Override
-	public boolean deleteQuietly(File file) {
+	public boolean deleteQuietly(File file) throws IOException {
 		LOGGER.debug(String.format("Deleting quietly: %s", file));
 		return FileUtils.deleteQuietly(file);
 	}

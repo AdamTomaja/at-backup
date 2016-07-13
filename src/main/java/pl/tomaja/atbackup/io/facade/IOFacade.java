@@ -10,7 +10,7 @@ import pl.tomaja.atbackup.io.FileType;
  */
 public interface IOFacade {
 	
-	void copyFile(File srcFile, File destFile) throws IOException;
+	boolean copyFile(File srcFile, File destFile) throws IOException;
 	
 	boolean exists(File file);
 	
@@ -20,7 +20,7 @@ public interface IOFacade {
 	
 	String[] list(File file);
 	
-	boolean deleteQuietly(File file);
+	boolean deleteQuietly(File file) throws IOException;
 	
 	FileType type(File file);
 }

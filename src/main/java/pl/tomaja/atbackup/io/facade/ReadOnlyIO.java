@@ -13,8 +13,9 @@ public class ReadOnlyIO extends RealIO {
 	private static final Logger LOGGER = Logger.getLogger(ReadOnlyIO.class);
 	
 	@Override
-	public void copyFile(File srcFile, File destFile) throws IOException {
+	public boolean copyFile(File srcFile, File destFile) throws IOException {
 		LOGGER.debug(String.format("Copying %s -> %s", srcFile, destFile));
+		return true;
 	}
 
 	@Override
