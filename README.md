@@ -30,6 +30,7 @@ java -jar target/at-backup.jar -s <source-dir> -t <target-dir> -c <config filena
 ```bash
 java -jar at-backup.jar -s @Data -t @Backup
 ```
+* @Data and @Backup parameters will be replaced with real directory path
 
 ## Modes
 * RemoveOrphans - Removes files in target no longer existing in source
