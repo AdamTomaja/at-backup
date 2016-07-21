@@ -35,6 +35,7 @@ public class RemoveOrphans extends AbstractTask implements Task {
 			final FileType targetType = io.type(targetFile);
 
 			if (shouldBeDeleted(sourceFile, targetType)) {
+				LOGGER.info("Removing: " + targetFile);
 				delete(result, targetFile);
 			} else if (targetType == FileType.DIRECTORY) {
 				doDirectory(params, result, childRelativeName);
