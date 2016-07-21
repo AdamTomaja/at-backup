@@ -23,4 +23,6 @@ public interface IOFacade {
 	boolean deleteQuietly(File file) throws IOException;
 	
 	FileType type(File file);
+
+	File findRootByName(String name);
 }

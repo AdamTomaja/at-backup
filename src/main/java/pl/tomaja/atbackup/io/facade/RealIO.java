@@ -8,13 +8,16 @@ import org.apache.log4j.Logger;
 
 import pl.tomaja.atbackup.io.FileType;
 
+import javax.swing.filechooser.FileSystemView;
+
 /**
  * @author Adam Tomaja
  */
 public class RealIO implements IOFacade {
 
 	private static final Logger LOGGER = Logger.getLogger(RealIO.class);
-	
+	private static final String ROOT_NAME_NAME_LETTER_SEPARATOR = " ";
+
 	@Override
 	public boolean copyFile(File srcFile, File destFile) throws IOException {
 		LOGGER.debug(String.format("Copying %s -> %s", srcFile, destFile));
@@ -61,5 +64,20 @@ public class RealIO implements IOFacade {
 		} else {
 			return FileType.FILE;
 		}
+	}
+
+	@Override
+	public File findRootByName(String name) {
+		for(File root : File.listRoots()) {
+			String rootName = FileSystemView.getFileSystemView().getSystemDisplayName(root);
+			String[] tokens = rootName.split(ROOT_NAME_NAME_LETTER_SEPARATOR);
+			if(tokens.length > 0) {
+				if(tokens[0].equals(name)) {
+					return root;
+				}
+			}
+		}
+
+		return null;
 	}
 }

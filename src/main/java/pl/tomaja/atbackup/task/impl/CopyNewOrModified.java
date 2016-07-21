@@ -24,7 +24,7 @@ public class CopyNewOrModified extends AbstractTask implements Task {
 
         TaskResult result = new TaskResult();
 
-        checkParams(params);
+        handleParams(params);
         doDirectory(params, result, "");
 
         return result;
