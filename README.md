@@ -6,12 +6,12 @@ at-backup is a simple tool writen in java. It can be used to make backup of dire
 ```bash
 mvn package
 ```
-You can also build an assemble with all dependencies 
+2. You can also build an assemble with all dependencies 
 ```bash
 mvn clean compile assembly:single
 ```
 
-2. Run at-backup with Your parameters
+3. Run at-backup with Your parameters
 ```bash
 java -jar target/at-backup.jar -s <source-dir> -t <target-dir> -c <config filename> -l intervalInMiliseconds
 ```
