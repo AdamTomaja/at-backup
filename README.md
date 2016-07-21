@@ -25,6 +25,12 @@ java -jar target/at-backup.jar -s <source-dir> -t <target-dir> -c <config filena
 * ```-mode``` - synchronization mode, at the moment only one option is available: RemoveOrphans
 * ```-io``` - IO mode. Real or ReadOnly
 
+## Source/target directories
+* You can provide absolute path like "C:/source" or partition/disk root name. To do this You must prefix partition name with "@". Example:
+```bash
+java -jar at-backup.jar -s @Data -t @Backup
+```
+
 ## Modes
 * RemoveOrphans - Removes files in target no longer existing in source
 
